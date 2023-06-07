@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        
+        #calculator {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+        }
+        
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        p {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <h1>Calculadora</h1>
+        <input type="text" id="input1" placeholder="Digite o primeiro número">
+        <input type="text" id="input2" placeholder="Digite o segundo número">
+        <button onclick="calculate('add')">Somar</button>
+        <button onclick="calculate('subtract')">Subtrair</button>
+        <button onclick="calculate('multiply')">Multiplicar</button>
+        <button onclick="calculate('divide')">Dividir</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculate(operation) {
+            var input1 = document.getElementById("input1").value;
+            var input2 = document.getElementById("input2").value;
+            var result;
+
+            if (operation === 'add') {
+                result = parseFloat(input1) + parseFloat(input2);
+            } else if (operation === 'subtract') {
+                result = parseFloat(input1) - parseFloat(input2);
+            } else if (operation === 'multiply') {
+                result = parseFloat(input1) * parseFloat(input2);
+            } else if (operation === 'divide') {
+                result = parseFloat(input1) / parseFloat(input2);
+            }
+
+            document.getElementById("result").innerHTML = "Resultado: " + result;
+        }
+    </script>
+</body>
+</html>
